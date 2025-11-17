@@ -1,0 +1,21 @@
+{
+  "name": "payment-api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "body-parser": "^1.20.3",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.12.0",
+    "pino": "^9.4.0",
+    "stripe": "^16.11.0",
+    "uuid": "^9.0.1",
+    "zod": "^3.23.8"
+  }
+}

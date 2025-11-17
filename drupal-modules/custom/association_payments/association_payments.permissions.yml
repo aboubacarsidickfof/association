@@ -1,0 +1,3 @@
+administer association payments:
+  title: 'Administer Association Payments settings'
+  description: 'Manage Payment API configuration and behavior.'

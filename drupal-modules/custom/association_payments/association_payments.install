@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the association_payments module.
+ */
+
+use Drupal\user\Entity\Role;
+
+/**
+ * Implements hook_install().
+ */
+function association_payments_install() {
+  // Ensure a 'member' role exists.
+  $rid = 'member';
+  $role = Role::load($rid);
+  if (!$role) {
+    $role = Role::create([
+      'id' => $rid,
+      'label' => 'Member',
+    ]);
+    $role->save();
+  }
+}

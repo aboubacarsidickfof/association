@@ -1,0 +1,39 @@
+association_payments.checkout:
+  path: '/association/checkout'
+  defaults:
+    _controller: '\\Drupal\\association_payments\\Controller\\CheckoutController::checkout'
+    _title: 'Start membership checkout'
+  requirements:
+    _permission: 'access content'
+
+association_payments.success:
+  path: '/association/checkout/success'
+  defaults:
+    _controller: '\\Drupal\\association_payments\\Controller\\CheckoutController::success'
+    _title: 'Payment success'
+  requirements:
+    _permission: 'access content'
+
+association_payments.cancel:
+  path: '/association/checkout/cancel'
+  defaults:
+    _controller: '\\Drupal\\association_payments\\Controller\\CheckoutController::cancel'
+    _title: 'Payment cancelled'
+  requirements:
+    _permission: 'access content'
+
+association_payments.webhook:
+  path: '/association/webhook'
+  methods: [POST]
+  defaults:
+    _controller: '\\Drupal\\association_payments\\Controller\\CheckoutController::webhook'
+  requirements:
+    _access: 'TRUE'
+
+association_payments.settings:
+  path: '/admin/config/association/payments'
+  defaults:
+    _form: '\\Drupal\\association_payments\\Form\\AssociationPaymentsSettingsForm'
+    _title: 'Association Payments settings'
+  requirements:
+    _permission: 'administer association payments'

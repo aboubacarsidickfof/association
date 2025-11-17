@@ -1,0 +1,7 @@
+name: Association Payments
+type: module
+description: Minimal integration with Payment API to start checkouts and activate members on webhooks.
+core_version_requirement: ^10
+package: Association
+dependencies:
+  - drupal:user
