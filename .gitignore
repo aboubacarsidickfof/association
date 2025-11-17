@@ -1,0 +1,50 @@
+# Environment variables (contains secrets)
+.env
+.env.local
+.env.*.local
+
+# Docker volumes data
+/drupal-data/
+/postgres-data/
+
+# Traefik certificates
+traefik/acme.json
+
+# Drupal files
+drupal-modules/files/
+drupal-modules/private/
+
+# Node.js
+payment-api/node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.bak
+.bak/
+*~
+
+# Backups
+*.sql
+*.sql.gz
+backups/
+
+# Docker override (if used for local dev)
+docker-compose.override.yml
