@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Association Solidaire - Démo du Thème</title>
+    
+    <!-- Thème CSS -->
+    <link rel="stylesheet" href="drupal-modules/custom/association_theme/css/variables.css">
+    <link rel="stylesheet" href="drupal-modules/custom/association_theme/css/reset.css">
+    <link rel="stylesheet" href="drupal-modules/custom/association_theme/css/layout.css">
+    <link rel="stylesheet" href="drupal-modules/custom/association_theme/css/components.css">
+    <link rel="stylesheet" href="drupal-modules/custom/association_theme/css/responsive.css">
+    
+    <style>
+        /* Adaptation pour démo standalone */
+        .menu-toggle { display: none; }
+        @media (max-width: 768px) {
+            .menu-toggle { display: block; }
+        }
+    </style>
+</head>
+<body class="association-theme">
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <a href="#" class="site-logo">
+                <img src="drupal-modules/custom/association_theme/images/logo.svg" alt="Association Solidaire" style="height: 50px;">
+            </a>
+            
+            <div class="site-branding">
+                <a href="#" class="site-name">Association Solidaire</a>
+                <div class="site-slogan">Ensemble pour aider les plus démunis</div>
+            </div>
+            
+            <button class="menu-toggle" aria-label="Menu" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <nav class="primary-menu" id="mainMenu">
+                <a href="#accueil" class="active">Accueil</a>
+                <a href="#actions">Nos actions</a>
+                <a href="#actualites">Actualités</a>
+                <a href="#don">Faire un don</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1>Ensemble, changeons des vies</h1>
+            <p>Notre association aide les personnes en situation de précarité à retrouver dignité et espoir. Chaque geste compte.</p>
+            <div style="margin-top: 2rem;">
+                <a href="#don" class="btn btn-accent btn-large">Faire un don</a>
+                <a href="#benevole" class="btn btn-outline btn-large" style="margin-left: 1rem;">Devenir bénévole</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistiques d'impact -->
+    <div class="section section--gray">
+        <div class="container text-center">
+            <h2>Notre impact en 2024</h2>
+            <p style="font-size: 1.125rem; color: #7f8c8d; margin-bottom: 3rem;">
+                Des chiffres qui témoignent de notre engagement quotidien
+            </p>
+            
+            <div class="impact-stats">
+                <div class="stat-item">
+                    <span class="stat-number">1500</span>
+                    <span class="stat-label">Personnes aidées</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">250</span>
+                    <span class="stat-label">Bénévoles actifs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">50</span>
+                    <span class="stat-label">Projets réalisés</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">95</span>
+                    <span class="stat-label">% Satisfaction</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nos actions -->
+    <div class="section" id="actions">
+        <div class="container">
+            <h2 class="text-center">Nos actions au quotidien</h2>
+            <p class="text-center" style="font-size: 1.125rem; color: #7f8c8d; margin-bottom: 3rem;">
+                Trois piliers pour venir en aide aux plus démunis
+            </p>
+            
+            <div class="grid-3">
+                <div class="card">
+                    <div style="font-size: 3rem; text-align: center; color: #2c5f8d;">🍲</div>
+                    <h3 class="card-title">Distribution alimentaire</h3>
+                    <p class="card-text">
+                        Chaque semaine, nous distribuons des repas chauds et des colis alimentaires aux familles dans le besoin.
+                    </p>
+                    <span class="badge badge-success">500 repas/semaine</span>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" class="btn btn-outline">En savoir plus</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div style="font-size: 3rem; text-align: center; color: #e67e22;">👔</div>
+                    <h3 class="card-title">Insertion professionnelle</h3>
+                    <p class="card-text">
+                        Ateliers CV, formations, coaching : nous accompagnons vers l'emploi durable et la réinsertion sociale.
+                    </p>
+                    <span class="badge badge-info">120 personnes formées</span>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" class="btn btn-outline">En savoir plus</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div style="font-size: 3rem; text-align: center; color: #27ae60;">🏠</div>
+                    <h3 class="card-title">Accès au logement</h3>
+                    <p class="card-text">
+                        Hébergement d'urgence et accompagnement pour retrouver un toit : personne ne doit dormir dehors.
+                    </p>
+                    <span class="badge badge-warning">80 hébergements</span>
+                    <div style="margin-top: 1rem;">
+                        <a href="#" class="btn btn-outline">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Actualités -->
+    <div class="section section--gray" id="actualites">
+        <div class="container">
+            <h2 class="text-center">Dernières actualités</h2>
+            <p class="text-center" style="font-size: 1.125rem; color: #7f8c8d; margin-bottom: 3rem;">
+                Suivez nos actions et l'impact de votre soutien
+            </p>
+            
+            <div class="grid-3">
+                <article class="card">
+                    <div style="background: linear-gradient(135deg, #2c5f8d 0%, #1a3d5c 100%); height: 200px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                        📰
+                    </div>
+                    <div class="node-meta" style="margin-bottom: 0.5rem; color: #7f8c8d; font-size: 0.875rem;">
+                        <span>15 Nov 2024</span>
+                    </div>
+                    <h3 class="card-title">Distribution de repas : 200 familles aidées</h3>
+                    <p class="card-text">
+                        Ce week-end, nos bénévoles ont distribué 600 repas chauds dans trois quartiers de la ville. Merci à tous les donateurs !
+                    </p>
+                    <a href="#" class="btn btn-primary">Lire la suite</a>
+                </article>
+                
+                <article class="card">
+                    <div style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%); height: 200px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                        🎓
+                    </div>
+                    <div class="node-meta" style="margin-bottom: 0.5rem; color: #7f8c8d; font-size: 0.875rem;">
+                        <span>10 Nov 2024</span>
+                    </div>
+                    <h3 class="card-title">Nouveau programme de formation informatique</h3>
+                    <p class="card-text">
+                        Lancement d'un atelier gratuit de formation aux outils numériques pour favoriser l'insertion professionnelle.
+                    </p>
+                    <a href="#" class="btn btn-primary">Lire la suite</a>
+                </article>
+                
+                <article class="card">
+                    <div style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%); height: 200px; border-radius: 8px; margin-bottom: 1rem; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                        🎉
+                    </div>
+                    <div class="node-meta" style="margin-bottom: 0.5rem; color: #7f8c8d; font-size: 0.875rem;">
+                        <span>5 Nov 2024</span>
+                    </div>
+                    <h3 class="card-title">10 ans d'engagement solidaire !</h3>
+                    <p class="card-text">
+                        L'association célèbre ses 10 ans d'existence. Une décennie au service des plus démunis, et ce n'est qu'un début !
+                    </p>
+                    <a href="#" class="btn btn-primary">Lire la suite</a>
+                </article>
+            </div>
+        </div>
+    </div>
+
+    <!-- Témoignages -->
+    <div class="section">
+        <div class="container">
+            <h2 class="text-center">Témoignages</h2>
+            <p class="text-center" style="font-size: 1.125rem; color: #7f8c8d; margin-bottom: 3rem;">
+                Ils ont été aidés, ils témoignent
+            </p>
+            
+            <div class="grid-2">
+                <div class="card">
+                    <div style="font-size: 2rem; color: #2c5f8d; margin-bottom: 1rem;">💬</div>
+                    <p style="font-style: italic; font-size: 1.125rem; margin-bottom: 1rem; color: #2c3e50;">
+                        "Grâce à l'association, j'ai retrouvé un emploi stable. Leur accompagnement a changé ma vie et celle de mes enfants."
+                    </p>
+                    <div style="border-top: 2px solid #ecf0f1; padding-top: 1rem; margin-top: 1rem;">
+                        <strong style="color: #2c5f8d;">Marie D.</strong><br>
+                        <span style="color: #7f8c8d; font-size: 0.875rem;">Bénéficiaire du programme d'insertion</span>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div style="font-size: 2rem; color: #e67e22; margin-bottom: 1rem;">💬</div>
+                    <p style="font-style: italic; font-size: 1.125rem; margin-bottom: 1rem; color: #2c3e50;">
+                        "Être bénévole ici, c'est donner du sens à mon temps libre. Je reçois autant que je donne."
+                    </p>
+                    <div style="border-top: 2px solid #ecf0f1; padding-top: 1rem; margin-top: 1rem;">
+                        <strong style="color: #e67e22;">Jean-Paul L.</strong><br>
+                        <span style="color: #7f8c8d; font-size: 0.875rem;">Bénévole depuis 3 ans</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="container" style="margin-top: 3rem;" id="don">
+        <div class="cta-section">
+            <h2>Votre soutien fait la différence</h2>
+            <p style="font-size: 1.125rem; margin-bottom: 2rem;">
+                Avec 20€, vous offrez un repas chaud à 5 familles.<br>
+                Avec 50€, vous financez un atelier d'insertion professionnelle.
+            </p>
+            <a href="/association/checkout" class="btn btn-primary btn-large">Je fais un don maintenant</a>
+            <a href="#benevole" class="btn btn-outline btn-large" style="margin-left: 1rem; background: rgba(255,255,255,0.2); border-color: white; color: white;">
+                Devenir bénévole
+            </a>
+        </div>
+    </div>
+
+    <!-- Formulaire de contact -->
+    <div class="section section--gray" id="contact">
+        <div class="container">
+            <h2 class="text-center">Contactez-nous</h2>
+            <p class="text-center" style="font-size: 1.125rem; color: #7f8c8d; margin-bottom: 3rem;">
+                Une question ? Un projet ? Écrivez-nous !
+            </p>
+            
+            <form class="donation-form" style="max-width: 700px;">
+                <div class="grid-2">
+                    <div class="form-group">
+                        <label class="form-label">Nom *</label>
+                        <input type="text" class="form-input" placeholder="Votre nom" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email *</label>
+                        <input type="email" class="form-input" placeholder="votre@email.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Sujet</label>
+                    <select class="form-select">
+                        <option>Question générale</option>
+                        <option>Devenir bénévole</option>
+                        <option>Partenariat</option>
+                        <option>Demande d'aide</option>
+                        <option>Autre</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">Message *</label>
+                    <textarea class="form-textarea" rows="5" placeholder="Votre message..." required></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-large">Envoyer le message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-columns">
+                <!-- Colonne 1 -->
+                <div class="footer-column">
+                    <h3>À propos</h3>
+                    <p>Association à but non lucratif dédiée à l'aide aux personnes en difficulté depuis 2010.</p>
+                    <p><strong>Agrément n°:</strong> W123456789</p>
+                    <div style="margin-top: 1rem;">
+                        <span class="badge badge-success">Reconnue d'utilité publique</span>
+                    </div>
+                </div>
+                
+                <!-- Colonne 2 -->
+                <div class="footer-column">
+                    <h3>Liens utiles</h3>
+                    <ul style="list-style: none; margin: 0; padding: 0;">
+                        <li><a href="#accueil">Qui sommes-nous</a></li>
+                        <li><a href="#actions">Nos actions</a></li>
+                        <li><a href="#actualites">Actualités</a></li>
+                        <li><a href="#benevole">Devenir bénévole</a></li>
+                        <li><a href="#don">Faire un don</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Colonne 3 -->
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>
+                        <strong>Adresse :</strong><br>
+                        123 Rue de la Solidarité<br>
+                        75001 Paris, France
+                    </p>
+                    <p>
+                        <strong>Email :</strong><br>
+                        <a href="mailto:contact@association.local">contact@association.local</a>
+                    </p>
+                    <p>
+                        <strong>Téléphone :</strong><br>
+                        +33 1 23 45 67 89
+                    </p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 Association Solidaire - Tous droits réservés | 
+                   <a href="#">Mentions légales</a> | 
+                   <a href="#">Politique de confidentialité</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Menu mobile toggle
+        function toggleMenu() {
+            const menu = document.getElementById('mainMenu');
+            const toggle = document.querySelector('.menu-toggle');
+            menu.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+        
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    // Fermer le menu mobile
+                    document.getElementById('mainMenu').classList.remove('active');
+                }
+            });
+        });
+        
+        // Animation compteurs
+        function animateCounter(element) {
+            const target = parseInt(element.textContent);
+            const duration = 2000;
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current);
+                }
+            }, 16);
+        }
+        
+        // Observer pour les animations au scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Animation des compteurs
+                    if (entry.target.classList.contains('stat-number')) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                    // Animation des cards
+                    if (entry.target.classList.contains('card')) {
+                        entry.target.style.opacity = '0';
+                        entry.target.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, 100);
+                        observer.unobserve(entry.target);
+                    }
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        // Observer les éléments
+        document.querySelectorAll('.stat-number').forEach(el => observer.observe(el));
+        document.querySelectorAll('.card').forEach(el => observer.observe(el));
+        
+        // Gestion du formulaire
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Message envoyé ! (Démo - pas de vrai envoi)');
+        });
+    </script>
+
+</body>
+</html>
