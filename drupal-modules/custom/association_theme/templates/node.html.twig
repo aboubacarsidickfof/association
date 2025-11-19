@@ -1,0 +1,40 @@
+<article{{ attributes.addClass('node', 'node--type-' ~ node.bundle|clean_class, 'card') }}>
+  
+  {% if content.field_image %}
+    <div class="card-image-wrapper">
+      {{ content.field_image }}
+    </div>
+  {% endif %}
+  
+  <div class="card-content">
+    {{ title_prefix }}
+    {% if not page %}
+      <h2{{ title_attributes.addClass('card-title') }}>
+        <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+      </h2>
+    {% else %}
+      <h1{{ title_attributes.addClass('page-title') }}>{{ label }}</h1>
+    {% endif %}
+    {{ title_suffix }}
+    
+    {% if display_submitted %}
+      <div class="node-meta">
+        <span class="submitted-date">{{ date }}</span>
+        {% if author_name %}
+          <span class="submitted-author">{{ 'par'|t }} {{ author_name }}</span>
+        {% endif %}
+      </div>
+    {% endif %}
+    
+    <div{{ content_attributes.addClass('node-content') }}>
+      {{ content|without('field_image', 'links') }}
+    </div>
+    
+    {% if content.links %}
+      <div class="node-links">
+        {{ content.links }}
+      </div>
+    {% endif %}
+  </div>
+  
+</article>

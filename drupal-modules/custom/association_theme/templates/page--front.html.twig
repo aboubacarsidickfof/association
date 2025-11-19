@@ -1,0 +1,101 @@
+{#
+/**
+ * @file
+ * Template pour la page d'accueil de l'association.
+ */
+#}
+
+<header class="site-header">
+  <div class="container">
+    {{ page.header }}
+    
+    {% if logo %}
+      <a href="{{ front_page }}" class="site-logo" rel="home">
+        <img src="{{ logo }}" alt="{{ 'Home'|t }}" />
+      </a>
+    {% endif %}
+    
+    {% if site_name %}
+      <div class="site-branding">
+        <a href="{{ front_page }}" class="site-name" rel="home">{{ site_name }}</a>
+        {% if site_slogan %}
+          <div class="site-slogan">{{ site_slogan }}</div>
+        {% endif %}
+      </div>
+    {% endif %}
+    
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    {{ page.primary_menu }}
+  </div>
+</header>
+
+{# Hero section spéciale pour la page d'accueil #}
+{% if page.hero %}
+  <section class="hero-section">
+    <div class="container">
+      {{ page.hero }}
+    </div>
+  </section>
+{% endif %}
+
+<main id="main-content" class="main-content">
+  
+  {# Contenu principal de la page d'accueil #}
+  <div class="container">
+    {{ page.content }}
+  </div>
+  
+  {# Section CTA toujours présente sur l'accueil #}
+  {% if not page.cta %}
+    <div class="container" style="margin-top: 3rem;">
+      <div class="cta-section">
+        <h2>{{ 'Soutenez notre mission'|t }}</h2>
+        <p>{{ 'Chaque contribution compte. Ensemble, nous pouvons faire la différence.'|t }}</p>
+        <a href="/association/checkout" class="btn btn-primary btn-large">{{ 'Faire un don'|t }}</a>
+        <a href="/user/register" class="btn btn-outline btn-large" style="margin-left: 1rem;">{{ 'Devenir membre'|t }}</a>
+      </div>
+    </div>
+  {% endif %}
+  
+</main>
+
+{% if page.footer_first or page.footer_second or page.footer_third %}
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-columns">
+        {% if page.footer_first %}
+          <div class="footer-column">
+            {{ page.footer_first }}
+          </div>
+        {% endif %}
+        
+        {% if page.footer_second %}
+          <div class="footer-column">
+            {{ page.footer_second }}
+          </div>
+        {% endif %}
+        
+        {% if page.footer_third %}
+          <div class="footer-column">
+            {{ page.footer_third }}
+          </div>
+        {% endif %}
+      </div>
+      
+      {% if page.footer_bottom %}
+        <div class="footer-bottom">
+          {{ page.footer_bottom }}
+        </div>
+      {% else %}
+        <div class="footer-bottom">
+          <p>© {{ "now"|date("Y") }} {{ site_name }} - {{ 'Tous droits réservés'|t }}</p>
+        </div>
+      {% endif %}
+    </div>
+  </footer>
+{% endif %}

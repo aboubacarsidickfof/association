@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Circle background -->
+  <circle cx="100" cy="100" r="95" fill="#2c5f8d"/>
+  
+  <!-- Heart shape (solidarité) -->
+  <path d="M100 150 
+           C 80 140, 60 120, 60 100
+           C 60 85, 70 75, 85 75
+           C 92 75, 98 78, 100 85
+           C 102 78, 108 75, 115 75
+           C 130 75, 140 85, 140 100
+           C 140 120, 120 140, 100 150 Z" 
+        fill="#e67e22"/>
+  
+  <!-- Hands (entraide) -->
+  <g fill="#ffffff" opacity="0.9">
+    <path d="M 70 90 L 75 100 L 80 95 L 85 105 L 90 100 L 95 110 L 100 105" 
+          stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 130 90 L 125 100 L 120 95 L 115 105 L 110 100 L 105 110 L 100 105" 
+          stroke="#ffffff" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="100" y="180" font-family="Arial, sans-serif" font-size="16" 
+        font-weight="bold" fill="#ffffff" text-anchor="middle">
+    SOLIDARITÉ
+  </text>
+</svg>

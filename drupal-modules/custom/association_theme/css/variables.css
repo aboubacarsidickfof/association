@@ -1,0 +1,57 @@
+:root {
+  /* Palette couleurs solidarité */
+  --color-primary: #2c5f8d;
+  --color-primary-light: #4a8ec2;
+  --color-primary-dark: #1a3d5c;
+  --color-secondary: #e67e22;
+  --color-secondary-light: #f39c12;
+  --color-accent: #27ae60;
+  --color-accent-dark: #229954;
+  
+  /* Couleurs texte */
+  --color-text: #2c3e50;
+  --color-text-light: #7f8c8d;
+  --color-text-inverse: #ffffff;
+  
+  /* Couleurs fond */
+  --color-bg: #ffffff;
+  --color-bg-light: #f8f9fa;
+  --color-bg-dark: #ecf0f1;
+  
+  /* Couleurs état */
+  --color-success: #27ae60;
+  --color-warning: #f39c12;
+  --color-error: #e74c3c;
+  --color-info: #3498db;
+  
+  /* Typographie */
+  --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-heading: 'Georgia', serif;
+  
+  /* Espacements */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 3rem;
+  --spacing-xl: 4rem;
+  
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+  
+  /* Ombres */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 8px rgba(0,0,0,0.15);
+  --shadow-lg: 0 8px 16px rgba(0,0,0,0.2);
+  
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+  
+  /* Layout */
+  --container-max: 1200px;
+  --header-height: 80px;
+}

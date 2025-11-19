@@ -1,0 +1,31 @@
+name: 'Association Solidaire'
+type: theme
+description: 'Thème moderne pour association à but non lucratif'
+core_version_requirement: ^10 || ^11
+base theme: stable9
+
+regions:
+  header: 'Header'
+  hero: 'Hero Section'
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  breadcrumb: 'Breadcrumb'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  sidebar_first: 'Left sidebar'
+  sidebar_second: 'Right sidebar'
+  footer_first: 'Footer First'
+  footer_second: 'Footer Second'
+  footer_third: 'Footer Third'
+  footer_bottom: 'Footer Bottom'
+
+libraries:
+  - association_theme/global-styling
+  - association_theme/global-scripts
+
+# Screenshot (optionnel)
+screenshot: images/screenshot.png
+
+# Logo par défaut
+logo: images/logo.svg
