@@ -2,14 +2,38 @@ http:
   middlewares:
     secureHeaders:
       headers:
-        sslRedirect: true
+        sslRedirect: false  # Set to true in production with valid SSL
+        forceSTSHeader: false  # Enable in prod
         browserXssFilter: true
         contentTypeNosniff: true
         frameDeny: true
-        referrerPolicy: "no-referrer-when-downgrade"
+        referrerPolicy: "strict-origin-when-cross-origin"
         permissionsPolicy: "accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
         stsSeconds: 31536000
         stsIncludeSubdomains: true
         stsPreload: true
-        customRequestHeaders:
-          X-Forwarded-Proto: "https"
+        customFrameOptionsValue: "SAMEORIGIN"
+        customResponseHeaders:
+          X-Robots-Tag: "none,noarchive,nosnippet"
+          Server: ""
+          X-Content-Type-Options: "nosniff"
+    
+    # Rate limiting
+    rate-limit:
+      rateLimit:
+        average: 100
+        period: 1s
+        burst: 50
+    
+    # Basic auth for Traefik dashboard (production)
+    dashboard-auth:
+      basicAuth:
+        users:
+          # User: admin, Password: change_me_dashboard
+          # Generate new: echo $(htpasswd -nB admin) | sed 's/\$/\$\$/g'
+          - "admin:$$2y$$05$$qKx8VkL5z7aN5vqZ.hHYsuXvlQR5rXxF7yYJ8vJZKQXKYwHXGQK5W"
+    
+    # Compress responses
+    compression:
+      compress: {}
+

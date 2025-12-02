@@ -1,8 +1,10 @@
-version: "3.9"
 services:
 
   traefik:
     image: traefik:v2.11
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
     command:
       - "--providers.docker=true"
       - "--providers.docker.network=association_web"
@@ -15,9 +17,16 @@ services:
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
       - "--providers.file.filename=/traefik/dynamic.yml"
       - "--api.dashboard=true"
-      - "--api.insecure=true"
+      - "--api.insecure=false"
+      - "--accesslog=true"
+      - "--log.level=INFO"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dashboard.rule=Host(`traefik.${ODOO_DOMAIN:-localhost}`)"
+      - "traefik.http.routers.dashboard.service=api@internal"
+      - "traefik.http.routers.dashboard.middlewares=dashboard-auth@file"
     ports:
-      - "8888:8080"
+      - "127.0.0.1:8888:8080"
       - "80:80"
       - "443:443"
     volumes:
@@ -29,8 +38,14 @@ services:
 
   odoo:
     image: odoo:17.0
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
     depends_on:
       - odoo-db
+    ports:
+      - "8069:8069"
+      - "8072:8072"
     environment:
       - HOST=odoo-db
       - USER=${ODOO_DB_USER}
@@ -44,6 +59,14 @@ services:
 
   odoo-web:
     image: nginx:stable
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    read_only: true
+    tmpfs:
+      - /var/cache/nginx
+      - /var/run
+      - /var/log/nginx
     depends_on:
       - odoo
     labels:
@@ -61,6 +84,9 @@ services:
 
   odoo-db:
     image: postgres:16
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
     ports:
       - "5432:5432"
     environment:
@@ -74,6 +100,9 @@ services:
 
   payment-api:
     build: ./payment-api
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
     depends_on:
       - payments-db
     labels:
@@ -107,6 +136,9 @@ services:
 
   payments-db:
     image: postgres:16
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
     ports:
       - "5433:5432"
     environment:
@@ -120,6 +152,9 @@ services:
 
   keycloak:
     image: quay.io/keycloak/keycloak:24.0
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
     command: ["start-dev"]
     environment:
       - KEYCLOAK_ADMIN=${KEYCLOAK_ADMIN}
@@ -138,6 +173,9 @@ services:
 
   pgadmin:
     image: dpage/pgadmin4:latest
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
     environment:
       - PGADMIN_DEFAULT_EMAIL=${PGADMIN_EMAIL}
       - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PASSWORD}
@@ -158,6 +196,9 @@ services:
 
   mailserver:
     image: axigen/axigen:latest
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
     hostname: mail.${MAIL_DOMAIN:-association.local}
     environment:
       - AXIGEN_ENABLE_WEBMAIL=yes
