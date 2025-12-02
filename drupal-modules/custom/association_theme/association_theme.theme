@@ -8,6 +8,20 @@
 use Drupal\Core\Form\FormStateInterface;
 
 /**
+ * Implements hook_preprocess_html().
+ * Adds a class to control branding text visibility based on theme setting.
+ */
+function association_theme_preprocess_html(array &$variables) {
+  $show_branding_text = theme_get_setting('show_branding_text');
+  if ($show_branding_text === NULL) {
+    $show_branding_text = FALSE; // default: logo only
+  }
+  if (!$show_branding_text) {
+    $variables['attributes']['class'][] = 'association-theme--branding-text-hidden';
+  }
+}
+
+/**
  * Implements hook_preprocess_page().
  */
 function association_theme_preprocess_page(&$variables) {
@@ -41,6 +55,25 @@ function association_theme_form_alter(&$form, FormStateInterface $form_state, $f
     $form['keys']['#attributes']['placeholder'] = t('Rechercher...');
     $form['actions']['submit']['#value'] = t('Rechercher');
   }
+}
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ * Adds a toggle in Appearance > Settings to show name/slogan in header.
+ */
+function association_theme_form_system_theme_settings_alter(&$form, FormStateInterface $form_state) {
+  $form['association_theme'] = [
+    '#type' => 'details',
+    '#title' => t('Association Theme settings'),
+    '#open' => TRUE,
+  ];
+
+  $form['association_theme']['show_branding_text'] = [
+    '#type' => 'checkbox',
+    '#title' => t('Display site name and slogan in header'),
+    '#default_value' => theme_get_setting('show_branding_text') ?? 0,
+    '#description' => t('When disabled, only the logo is shown in the header branding block.'),
+  ];
 }
 
 /**

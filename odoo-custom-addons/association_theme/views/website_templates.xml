@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Custom Header -->
+    <template id="header_custom" name="Association Header" inherit_id="website.layout">
+        <xpath expr="//header" position="replace">
+            <header class="site-header o_association_theme">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <a t-attf-href="/" class="site-logo">
+                                <img t-attf-src="/logo.png" alt="Association Logo" class="img-fluid" style="max-height: 50px;"/>
+                            </a>
+                        </div>
+                        <div class="col">
+                            <nav class="primary-menu d-none d-lg-block">
+                                <ul class="nav">
+                                    <li class="nav-item"><a href="/" class="nav-link">Accueil</a></li>
+                                    <li class="nav-item"><a href="/page/about" class="nav-link">À propos</a></li>
+                                    <li class="nav-item"><a href="/page/projects" class="nav-link">Projets</a></li>
+                                    <li class="nav-item"><a href="/shop" class="nav-link">Boutique</a></li>
+                                    <li class="nav-item"><a href="/contactus" class="nav-link">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-auto">
+                            <a href="/shop/cart" class="btn btn-primary">Faire un don</a>
+                        </div>
+                        <div class="col-auto d-lg-none">
+                            <button class="menu-toggle btn">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </xpath>
+    </template>
+
+    <!-- Custom Footer -->
+    <template id="footer_custom" name="Association Footer" inherit_id="website.layout">
+        <xpath expr="//div[@id='footer']" position="replace">
+            <footer class="site-footer" id="footer">
+                <div class="container">
+                    <div class="footer-columns row">
+                        <div class="footer-column col-md-4">
+                            <h3>À propos</h3>
+                            <p>Association dédiée à la solidarité et l'entraide.</p>
+                        </div>
+                        <div class="footer-column col-md-4">
+                            <h3>Liens rapides</h3>
+                            <ul class="list-unstyled">
+                                <li><a href="/page/about">À propos</a></li>
+                                <li><a href="/page/projects">Nos projets</a></li>
+                                <li><a href="/contactus">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-column col-md-4">
+                            <h3>Contact</h3>
+                            <p>Email: contact@association.local</p>
+                            <p>Tel: +33 1 23 45 67 89</p>
+                        </div>
+                    </div>
+                    <div class="footer-bottom text-center mt-4">
+                        <p>© <span t-field="request.website.company_id.name"/> - Tous droits réservés</p>
+                        <p>Propulsé par <a href="https://www.odoo.com" target="_blank">Odoo</a></p>
+                    </div>
+                </div>
+            </footer>
+        </xpath>
+    </template>
+
+    <!-- Homepage Hero Section -->
+    <template id="homepage_hero" name="Homepage Hero">
+        <section class="hero-section">
+            <div class="container text-center">
+                <h1>Soutenez notre mission</h1>
+                <p>Chaque contribution compte. Ensemble, nous pouvons faire la différence.</p>
+                <div class="mt-4">
+                    <a href="/shop/cart" class="btn btn-primary btn-large me-2">Faire un don</a>
+                    <a href="/page/about" class="btn btn-outline">En savoir plus</a>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Impact Stats Section -->
+    <template id="impact_stats" name="Impact Statistics">
+        <section class="section section--gray">
+            <div class="container">
+                <h2 class="text-center mb-5">Notre impact</h2>
+                <div class="impact-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">1000+</span>
+                        <span class="stat-label">Membres</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Projets</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">€100K</span>
+                        <span class="stat-label">Collectés</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5000+</span>
+                        <span class="stat-label">Bénéficiaires</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+</odoo>

@@ -90,6 +90,35 @@ docker compose up -d --build
 ```
 
 ## Drupal Setup (Members Area + Dues)
+
+### Thème personnalisé: Association Solidaire
+
+Un thème moderne et responsive spécialement conçu pour les associations à but non lucratif est inclus.
+
+**Activation rapide :**
+```powershell
+# Activer le thème via Drush
+docker compose exec drupal bash /var/www/html/modules/custom/association_theme/install.sh
+
+# Ou manuellement
+docker compose exec drupal drush theme:enable association_theme -y
+docker compose exec drupal drush config:set system.theme default association_theme -y
+docker compose exec drupal drush cr
+```
+
+**Caractéristiques :**
+- Design solidaire avec palette de couleurs dédiée (bleu, orange, vert)
+- Responsive mobile-first
+- Composants : Hero section, cards, statistiques d'impact, formulaires de don
+- Régions configurables : header, hero, sidebar, footer (3 colonnes)
+- Animations au scroll et transitions fluides
+- Templates optimisés pour actualités, projets, témoignages
+
+**Documentation complète :**
+- `drupal-modules/custom/association_theme/README.md` - Guide d'utilisation
+- `drupal-modules/custom/association_theme/EXAMPLES.md` - Exemples de contenu HTML
+
+### Modules recommandés
 Install modules (via UI or Composer inside the container):
 - JSON:API, REST, User, Pathauto, Redirect
 - Group or Organic Groups (for members-only content)

@@ -1,21 +1,7 @@
 <header class="site-header">
   <div class="container">
+    {# Render the header region (branding/menu blocks) and avoid duplicating custom logo markup #}
     {{ page.header }}
-    
-    {% if logo %}
-      <a href="{{ front_page }}" class="site-logo" rel="home">
-        <img src="{{ logo }}" alt="{{ 'Home'|t }}" />
-      </a>
-    {% endif %}
-    
-    {% if site_name %}
-      <div class="site-branding">
-        <a href="{{ front_page }}" class="site-name" rel="home">{{ site_name }}</a>
-        {% if site_slogan %}
-          <div class="site-slogan">{{ site_slogan }}</div>
-        {% endif %}
-      </div>
-    {% endif %}
     
     <button class="menu-toggle" aria-label="Menu">
       <span></span>

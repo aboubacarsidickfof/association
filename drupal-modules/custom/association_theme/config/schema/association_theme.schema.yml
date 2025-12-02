@@ -1,0 +1,7 @@
+association_theme.settings:
+  type: theme_settings
+  label: 'Association Theme settings'
+  mapping:
+    show_branding_text:
+      type: boolean
+      label: 'Display site name and slogan in header'

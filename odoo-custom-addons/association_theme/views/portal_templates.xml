@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Custom Portal Layout -->
+    <template id="portal_layout_custom" name="Portal Layout - Association" inherit_id="portal.portal_layout">
+        <xpath expr="//div[hasclass('o_portal_my_home')]" position="attributes">
+            <attribute name="class" add="o_association_theme" separator=" "/>
+        </xpath>
+    </template>
+
+    <!-- Member Dashboard -->
+    <template id="portal_my_home_member" name="Member Dashboard" inherit_id="portal.portal_my_home" priority="40">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Mes cotisations</t>
+                <t t-set="url" t-value="'/my/subscriptions'"/>
+                <t t-set="placeholder_count" t-value="'subscription_count'"/>
+            </t>
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="title">Mes dons</t>
+                <t t-set="url" t-value="'/my/donations'"/>
+                <t t-set="placeholder_count" t-value="'donation_count'"/>
+            </t>
+        </xpath>
+    </template>
+</odoo>

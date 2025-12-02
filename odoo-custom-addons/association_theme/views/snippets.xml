@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Donation CTA Snippet -->
+    <template id="s_donation_cta" name="Donation Call-to-Action">
+        <section class="cta-section s_donation_cta">
+            <div class="container">
+                <h2>Soutenez notre mission</h2>
+                <p>Chaque contribution compte. Ensemble, nous pouvons faire la différence.</p>
+                <div class="mt-4">
+                    <a href="/shop" class="btn btn-primary btn-large">Faire un don</a>
+                    <a href="/page/become-member" class="btn btn-secondary btn-large ms-2">Devenir membre</a>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Project Cards Snippet -->
+    <template id="s_project_cards" name="Project Cards">
+        <section class="section s_project_cards">
+            <div class="container">
+                <h2 class="text-center mb-5">Nos projets</h2>
+                <div class="row grid-3">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="/web/image/website.s_three_columns_default_image_1" class="card-image" alt="Project 1"/>
+                            <h3 class="card-title">Éducation</h3>
+                            <p class="card-text">Soutien scolaire et accès à l'éducation pour tous.</p>
+                            <a href="#" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="/web/image/website.s_three_columns_default_image_2" class="card-image" alt="Project 2"/>
+                            <h3 class="card-title">Santé</h3>
+                            <p class="card-text">Accès aux soins et sensibilisation à la santé.</p>
+                            <a href="#" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img src="/web/image/website.s_three_columns_default_image_3" class="card-image" alt="Project 3"/>
+                            <h3 class="card-title">Environnement</h3>
+                            <p class="card-text">Protection de l'environnement et développement durable.</p>
+                            <a href="#" class="btn btn-primary">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </template>
+
+    <!-- Register snippets -->
+    <template id="snippets" inherit_id="website.snippets">
+        <xpath expr="//div[@id='snippet_structure']" position="inside">
+            <div>
+                <div class="oe_snippet_thumbnail">
+                    <img class="oe_snippet_thumbnail_img" src="/association_theme/static/src/img/snippets/donation_cta.png" alt="Donation CTA"/>
+                    <span class="oe_snippet_thumbnail_title">Appel à dons</span>
+                </div>
+                <section class="oe_snippet_body cta-section">
+                    <t t-call="association_theme.s_donation_cta"/>
+                </section>
+            </div>
+            <div>
+                <div class="oe_snippet_thumbnail">
+                    <img class="oe_snippet_thumbnail_img" src="/association_theme/static/src/img/snippets/project_cards.png" alt="Project Cards"/>
+                    <span class="oe_snippet_thumbnail_title">Projets</span>
+                </div>
+                <section class="oe_snippet_body">
+                    <t t-call="association_theme.s_project_cards"/>
+                </section>
+            </div>
+        </xpath>
+    </template>
+</odoo>

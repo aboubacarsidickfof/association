@@ -26,14 +26,14 @@ app.get('/health', (_req, res) => {
   res.json({ status: 'ok' });
 });
 
-async function notifyDrupal(email, status) {
+async function notifyOdoo(email, status) {
   try {
-    const url = process.env.DRUPAL_WEBHOOK_URL; // e.g., https://www.example.org/association/webhook
-    const token = process.env.DRUPAL_WEBHOOK_TOKEN;
+    const url = process.env.ODOO_WEBHOOK_URL; // e.g., https://www.example.org/webhook/subscription
+    const token = process.env.ODOO_WEBHOOK_TOKEN;
     if (!url) return;
     await axios.post(url, { email, status }, { headers: token ? { 'X-Association-Token': token } : {}, timeout: 5000 });
   } catch (e) {
-    logger.warn({ err: e?.message }, 'Failed to notify Drupal');
+    logger.warn({ err: e?.message }, 'Failed to notify Odoo');
   }
 }
 
@@ -116,7 +116,7 @@ app.post('/v1/webhooks/stripe', async (req, res) => {
               customerId,
               'pending'
             ]);
-            await notifyDrupal(email, 'active');
+            await notifyOdoo(email, 'active');
           }
         }
         break;
@@ -136,7 +136,7 @@ app.post('/v1/webhooks/stripe', async (req, res) => {
               'INSERT INTO payments (id, customer_id, amount_cents, currency, provider, provider_ref, status, paid_at) VALUES ($1,$2,$3,$4,$5,$6,$7,now())',
               [paymentId, customerId, amount_cents, currency, 'stripe', provider_ref, 'succeeded']
             );
-            await notifyDrupal(email, 'active');
+            await notifyOdoo(email, 'active');
           }
         }
         break;
@@ -174,7 +174,7 @@ app.post('/v1/webhooks/flutterwave', async (req, res) => {
             [paymentId, customerId, amount_cents, currency, 'flutterwave', provider_ref, 'succeeded']
           );
           await query('UPDATE subscriptions SET status=$1, updated_at=now() WHERE customer_id=$2 AND status=$3', ['active', customerId, 'pending']);
-          await notifyDrupal(email, 'active');
+          await notifyOdoo(email, 'active');
         }
       }
     }
@@ -205,7 +205,7 @@ app.post('/v1/gocardless/complete', async (req, res) => {
     if (subRes.rows.length) {
       const c = await query('SELECT email FROM customers WHERE id=$1', [subRes.rows[0].customer_id]);
       const email = c.rows[0]?.email;
-      if (email) await notifyDrupal(email, 'active');
+      if (email) await notifyOdoo(email, 'active');
     }
     res.json({ ok: true });
   } catch (e) {
